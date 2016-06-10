@@ -8,12 +8,17 @@ app.use(express.static('public'));
 var server = http.Server(app);
 var io = socket_io(server);
 
+var users = [];
+
 io.on('connection', function (socket) {
-    console.log('Client connected');
+    console.log('Client '+socket.id+' connected');
+    users.push(socket.id);
+    io.emit('message', 'User '+socket.id+' has entered the chat.');
+    io.emit('message', 'There are '+users.length+' users in the chat.');
 
     socket.on('message', function(message) {
-        console.log('Received message:', message);
-        socket.broadcast.emit('message', message);
+        console.log('Received message:', socket.id+': '+message);
+        socket.broadcast.emit('message', socket.id+': '+message);
     });
 });
 
