@@ -8,13 +8,13 @@ app.use(express.static('public'));
 var server = http.Server(app);
 var io = socket_io(server);
 
-var users = [];
+var users = 0;
 
 io.on('connection', function (socket) {
     console.log('Client '+socket.id+' connected');
-    users.push(socket.id);
+    ++users;
     io.emit('message', 'User '+socket.id+' has entered the chat.');
-    io.emit('message', 'There are '+users.length+' users in the chat.');
+    io.emit('message', 'There are '+users+' users in the chat.');
 
     socket.on('message', function(message) {
         console.log('Received message:', socket.id+': '+message);
