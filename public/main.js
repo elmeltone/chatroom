@@ -1,21 +1,40 @@
-$(document).ready(function() {
-    var socket = io();
-    var input = $('input');
-    var messages = $('#messages');
+$(function() {
 
-    var addMessage = function(message) {
-        messages.append('<div>' + message + '</div>');
-    };
+var socket = io();
+var $login = $('.login');
+var $base = $('.base');
+var $username = $('.username');
+var $input = $('.chatter');
+var $messages = $('.messages');
 
-    input.on('keydown', function(event) {
+var addMessage = function(message) {
+    $messages.append('<div>' + message + '</div>');
+};
+
+
+    $username.on('keydown', function(event) {
         if (event.keyCode != 13) {
             return;
         }
 
-        var message = input.val();
+        var nickname = $username.val();
+        socket.id = nickname;
+        console.log('Name changed to '+nickname);
+        $login.fadeOut(200, function() {
+            $base.show(200);
+        });
+        $username.val('');
+    });
+
+    $input.on('keydown', function(event) {
+        if (event.keyCode != 13) {
+            return;
+        }
+
+        var message = $input.val();
         addMessage(message);
         socket.emit('message', message);
-        input.val('');
+        $input.val('');
     });
 
     socket.on('message', addMessage);
