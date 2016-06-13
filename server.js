@@ -17,10 +17,8 @@ io.on('connection', function (socket) {
     io.emit('nickname', nickname + ' entered the chat.');
   });
   socket.on('count', function(count) {
-    io.emit('count', count);
+    io.emit('count', users);
   });
-  /*socket.broadcast.emit('message', socket.id+' has entered the chat.');*/
-  io.emit('message', 'There are '+users+' users in the chat.');
 
   socket.on('message', function(message) {
      console.log('Received message:', socket.id+': '+message);
