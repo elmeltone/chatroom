@@ -13,12 +13,12 @@ var users = 0;
 io.on('connection', function (socket) {
     console.log('Client '+socket.id+' connected');
     ++users;
-    io.emit('message', 'User '+socket.id+' has entered the chat.');
+    socket.broadcast.emit('message', socket.id+' has entered the chat.');
     io.emit('message', 'There are '+users+' users in the chat.');
 
     socket.on('message', function(message) {
         console.log('Received message:', socket.id+': '+message);
-        socket.broadcast.emit('message', socket.id+': '+message);
+        io.emit('message', socket.id+': '+message);
     });
 });
 

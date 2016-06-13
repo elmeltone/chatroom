@@ -30,7 +30,7 @@ $(function() {
         }
 
         var message = $input.val();
-        addMessage(message);
+        /*addMessage(message);*/
         socket.emit('message', message);
         $input.val('');
     });
