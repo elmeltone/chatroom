@@ -14,22 +14,23 @@ io.on('connection', function (socket) {
   console.log('Client '+socket.id+' connected.');
   ++users;
   socket.on('nickname', function(nickname) {
+    socket.nickname = nickname;
     io.emit('nickname', nickname + ' entered the chat.');
   });
   socket.on('count', function(count) {
     io.emit('count', users);
   });
-
   socket.on('message', function(message) {
      console.log('Received message:', socket.id+': '+message);
      io.emit('message', message);
   });
+  socket.on('disconnect', function() {
+    console.log('Client '+socket.id+' disconnected.');
+    --users;
+    io.emit('count', users);
+    io.emit('nickname', socket.nickname + ' left the chat.');
+  });
 });
 
-/*io.on('disconnection', function(socket) {
-  console.log('Client '+socket.id+' disconnected.')
-  users = users-1;
-  io.emit('message', 'There are '+users+' users in the chat.');
-});*/
 
 server.listen(8080);
