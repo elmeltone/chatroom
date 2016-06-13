@@ -6,6 +6,10 @@ $(function() {
     var $input = $('.chatter');
     var $messages = $('.messages');
 
+    var addNickname = function(name) {
+        $messages.append('<div>' + name + '</div>');
+    };
+
     var addMessage = function(message) {
         $messages.append('<div>' + message + '</div>');
     };
@@ -16,8 +20,8 @@ $(function() {
         }
 
         var nickname = $username.val();
-        socket.id = nickname;
-        console.log('Name changed to '+nickname);
+        console.log(nickname);
+        socket.emit('nickname', nickname);
         $login.fadeOut(200, function() {
             $base.show(200);
         });
@@ -35,5 +39,6 @@ $(function() {
         $input.val('');
     });
 
+    socket.on('nickname', addNickname);
     socket.on('message', addMessage);
 });
