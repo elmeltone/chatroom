@@ -12,8 +12,10 @@ var users = 0;
 
 io.on('connection', function (socket) {
   console.log('Client '+socket.id+' connected.');
+  var usersPresent = false;
   ++users;
   socket.on('nickname', function(nickname) {
+    usersPresent = true;
     socket.nickname = nickname;
     io.emit('nickname', nickname + ' entered the chat.');
   });
@@ -25,10 +27,12 @@ io.on('connection', function (socket) {
      io.emit('message', message);
   });
   socket.on('disconnect', function() {
-    console.log('Client '+socket.id+' disconnected.');
-    --users;
-    io.emit('count', users);
-    io.emit('nickname', socket.nickname + ' left the chat.');
+    if (usersPresent) {
+      --users;
+      console.log('Client '+socket.id+' disconnected.');
+      socket.broadcast.emit('count', users);
+      socket.broadcast.emit('nickname', socket.nickname + ' left the chat.');
+    };
   });
 });
 
