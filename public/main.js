@@ -34,6 +34,7 @@ $(function() {
 
         nickname = $username.val();
         console.log(nickname);
+        $('.welcome').append(nickname);
         socket.emit('nickname', nickname);
         count = count+1;
         socket.emit('count', count);
@@ -47,6 +48,19 @@ $(function() {
         if (event.keyCode != 13) {
             return;
         }
+
+        if($('.begin').css('opacity') != '0') {
+            $('.begin').css({
+                'opacity': '0',
+                'transition': '0.5s'
+            });
+            $('.begin').on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+                $('.begin').css({
+                    'font-size': '1px',
+                    'transition': '0.5s'
+                });
+            });
+        };
 
         var message = $input.val();
         socket.emit('message', nickname+': '+message);
