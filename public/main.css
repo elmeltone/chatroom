@@ -382,3 +382,5 @@ textarea {
   display: none; }
 
 /***** General Styles ******/
+.messages {
+  overflow-y: auto; }

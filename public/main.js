@@ -1,12 +1,10 @@
 $(function() {
     var socket = io({
-        'reconnection': true,
-        'reconnectionDelay': 1000,
-        'reconnectionDelayMax' : 5000,
-        'reconnectionAttempts': 1
+        'reconnection': false
     });
     var $login = $('.login');
     var $base = $('.base');
+    var $begin = $('.begin');
     var $count = $('.count');
     var $username = $('.username');
     var $input = $('.chatter');
@@ -39,7 +37,9 @@ $(function() {
         count = count+1;
         socket.emit('count', count);
         $login.fadeOut(200, function() {
-            $base.show(200);
+            $base.fadeIn(200, function() {
+                $input.focus();
+            });
         });
         $username.val('');
     });
@@ -49,15 +49,15 @@ $(function() {
             return;
         }
 
-        if($('.begin').css('opacity') != '0') {
-            $('.begin').css({
+        if($begin.css('opacity') != '0') {
+            $begin.css({
                 'opacity': '0',
-                'transition': '0.5s'
+                'transition': '0.2s'
             });
-            $('.begin').on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
-                $('.begin').css({
+            $begin.on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+                $begin.css({
                     'font-size': '1px',
-                    'transition': '0.5s'
+                    'transition': '0.2s'
                 });
             });
         };
@@ -65,6 +65,7 @@ $(function() {
         var message = $input.val();
         socket.emit('message', nickname+': '+message);
         $input.val('');
+        $messages.scrollTop = $messages.scrollHeight;
     });
 
     socket.on('nickname', addNickname);
