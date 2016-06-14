@@ -17,7 +17,7 @@ io.on('connection', function (socket) {
   socket.on('nickname', function(nickname) {
     usersPresent = true;
     socket.nickname = nickname;
-    io.emit('nickname', nickname + ' entered the chat.');
+    socket.broadcast.emit('nickname', nickname + ' entered the chat.');
   });
   socket.on('count', function(count) {
     io.emit('count', users);

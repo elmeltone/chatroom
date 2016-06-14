@@ -1,5 +1,10 @@
 $(function() {
-    var socket = io();
+    var socket = io({
+        'reconnection': true,
+        'reconnectionDelay': 1000,
+        'reconnectionDelayMax' : 5000,
+        'reconnectionAttempts': 1
+    });
     var $login = $('.login');
     var $base = $('.base');
     var $count = $('.count');
