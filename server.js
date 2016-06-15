@@ -22,15 +22,16 @@ io.on('connection', function (socket) {
     usersArray.push(nickname);
     io.emit('clearNames');
     for (i=0; i<usersArray.length; i++) {
-      io.emit('showName', '<div class="name-box">'+usersArray[i]+'</div>')
+      io.emit('showName', '<div class="name-box">'+usersArray[i]+'<span class="'+
+        usersArray[i]+' typing"></span></div>');
     };
   });
-  /*socket.on('showName', function(showName) {
-    socket.nickname = nickname;
-    io.emit('showName', nickname);
-  });*/
-  socket.on('count', function(count) {
+  socket.on('count', function() {
     io.emit('count', users);
+  });
+  socket.on('typing', function(typer) {
+    typer = socket.nickname;
+    io.emit('typing', typer);
   });
   socket.on('message', function(message) {
      console.log('Received message:', socket.id+': '+message);

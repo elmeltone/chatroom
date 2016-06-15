@@ -30,6 +30,16 @@ $(function() {
         $count.append(users);
     };
 
+    var isTyping = function(typer) {
+        $('.'+typer).empty();
+        $('.'+typer).append(' is typing...');
+        function timeTyping() {
+        $('.'+typer).empty();
+        };
+        clearTimeout(timeTyping);
+        setTimeout(timeTyping, 4000);
+    };
+
     var addMessage = function(message) {
         $messages.append('<div>'+message+'</div>');
     };
@@ -57,20 +67,21 @@ $(function() {
 
     $input.on('keydown', function(event) {
         if (event.keyCode != 13) {
+            socket.emit('typing');
             return;
-        }
-
-        if($begin.css('opacity') != '0') {
-            $begin.css({
-                'opacity': '0',
-                'transition': '0.2s'
-            });
-            $begin.on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+        } else if (event.keyCode === 13) {
+            if($begin.css('opacity') != '0') {
                 $begin.css({
-                    'font-size': '1px',
+                    'opacity': '0',
                     'transition': '0.2s'
                 });
-            });
+                $begin.on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function(){
+                    $begin.css({
+                        'font-size': '1px',
+                        'transition': '0.2s'
+                    });
+                });
+            };
         };
 
         var message = $input.val();
@@ -83,5 +94,6 @@ $(function() {
     socket.on('clearNames', clearNames);
     socket.on('showName', showNames);
     socket.on('count', addCount);
+    socket.on('typing', isTyping);
     socket.on('message', addMessage);
 });
