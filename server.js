@@ -38,10 +38,18 @@ io.on('connection', function (socket) {
   });
   socket.on('disconnect', function() {
     if (usersPresent) {
+      var index = usersArray.indexOf(socket.nickname);
+      if (index > -1) {
+        usersArray.splice(index, 1);
+      };
       --users;
       console.log('Client '+socket.id+' disconnected.');
       socket.broadcast.emit('count', users);
       socket.broadcast.emit('nickname', socket.nickname+' left.');
+      socket.broadcast.emit('clearNames');
+      for (i=0; i<usersArray.length; i++) {
+        socket.broadcast.emit('showName', '<div class="name-box">'+usersArray[i]+'</div>')
+      };
     };
   });
 });
