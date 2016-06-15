@@ -383,4 +383,6 @@ textarea {
 
 /***** General Styles ******/
 .messages {
-  overflow-y: auto; }
+  height: 500px;
+  overflow-y: auto;
+  color: blue; }

@@ -7,6 +7,7 @@ $(function() {
     var $begin = $('.begin');
     var $count = $('.count');
     var $username = $('.username');
+    var $present = $('.present');
     var $input = $('.chatter');
     var $messages = $('.messages');
     var nickname;
@@ -14,6 +15,14 @@ $(function() {
 
     var addNickname = function(name) {
         $messages.append('<div>'+name+'</div>');
+    };
+
+    var clearNames = function() {
+        $present.empty();
+    };
+
+    var showNames = function(names) {
+        $present.append(names);
     };
 
     var addCount = function(users) {
@@ -34,6 +43,8 @@ $(function() {
         console.log(nickname);
         $('.welcome').append(nickname);
         socket.emit('nickname', nickname);
+        socket.emit('clearNames');
+        socket.emit('showName', nickname);
         count = count+1;
         socket.emit('count', count);
         $login.fadeOut(200, function() {
@@ -65,10 +76,12 @@ $(function() {
         var message = $input.val();
         socket.emit('message', nickname+': '+message);
         $input.val('');
-        $messages.scrollTop = $messages.scrollHeight;
+        $messages[0].scrollTop = $messages[0].scrollHeight;
     });
 
     socket.on('nickname', addNickname);
+    socket.on('clearNames', clearNames);
+    socket.on('showName', showNames);
     socket.on('count', addCount);
     socket.on('message', addMessage);
 });

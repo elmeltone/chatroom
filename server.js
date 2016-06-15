@@ -9,16 +9,26 @@ var server = http.Server(app);
 var io = socket_io(server);
 
 var users = 0;
+var usersArray = [];
 
 io.on('connection', function (socket) {
   console.log('Client '+socket.id+' connected.');
   var usersPresent = false;
   ++users;
-  socket.on('nickname', function(nickname) {
+  socket.on('nickname', function(nickname, showName) {
     usersPresent = true;
     socket.nickname = nickname;
-    socket.broadcast.emit('nickname', nickname + ' entered the chat.');
+    socket.broadcast.emit('nickname', nickname+' entered.');
+    usersArray.push(nickname);
+    io.emit('clearNames');
+    for (i=0; i<usersArray.length; i++) {
+      io.emit('showName', '<div class="name-box">'+usersArray[i]+'</div>')
+    };
   });
+  /*socket.on('showName', function(showName) {
+    socket.nickname = nickname;
+    io.emit('showName', nickname);
+  });*/
   socket.on('count', function(count) {
     io.emit('count', users);
   });
@@ -31,7 +41,7 @@ io.on('connection', function (socket) {
       --users;
       console.log('Client '+socket.id+' disconnected.');
       socket.broadcast.emit('count', users);
-      socket.broadcast.emit('nickname', socket.nickname + ' left the chat.');
+      socket.broadcast.emit('nickname', socket.nickname+' left.');
     };
   });
 });
