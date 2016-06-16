@@ -43,6 +43,14 @@ $message-color: #32cd32;
   }
 }
 
+/*@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}*/
+
 @mixin gradient($from, $to) {
   background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
   background: -moz-linear-gradient(top,  $from, $to);
@@ -62,20 +70,21 @@ body {
   background: $background-color;
   color: $anchor-color;
   text-align: center-top;
+  font-size: 16px;
 }
 
 div, input, p, {
-  margin: 8px;
+  margin: 1vh 1vw;
+  @include border-radius(2px);
 }
 
 input {
-  @include border-radius(2px);
   height: 1.5rem;
   font-size: 1.5 rem;
   border: none;
   &:focus {
     outline: none;
-    @include box-shadow(0, 0, 25px, $emphasis-color);
+    @include box-shadow(0, 0, 10px, $message-color);
   }
   background: $anchor-color;
   color: $compliment-color;

@@ -14,7 +14,7 @@ $(function() {
     var count = 0;
 
     var addNickname = function(name) {
-        $messages.append('<div>'+name+'</div>');
+        $messages.append('<div class="door-box">'+name+'</div>');
     };
     var clearNames = function() {
         $present.empty();
@@ -33,10 +33,10 @@ $(function() {
         $('.'+typer).empty();
         };
         clearTimeout(timeTyping);
-        setTimeout(timeTyping, 2000);
+        setTimeout(timeTyping, 2500);
     };
     var addMessage = function(message) {
-        $messages.append('<div>'+message+'</div>');
+        $messages.append('<div class="message-box">'+message+'</div>');
     };
 
     $username.focus();

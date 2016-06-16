@@ -14,6 +14,13 @@ Tags: Website, Chat, Chatroom, Node.js
 #32cd32 green
 */
 /***** Mixins ******/
+/*@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}*/
 /***** Normalize ******/
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -386,26 +393,50 @@ textarea {
   width: 100%;
   height: 100%;
   text-align: center;
-  padding-top: 20vh; }
+  padding-top: 20vh;
+  font-size: 1.5rem; }
 
 .username {
-  text-align: center; }
+  text-align: center;
+  font-size: 1.5rem; }
 
 .base {
-  width: 100%;
-  display: none; }
+  width: 98vw;
+  display: none;
+  overflow: auto; }
 
 .brand {
   font-weight: bolder;
-  font-size: 2rem; }
+  font-size: 1.5rem; }
 
 .brand, .count {
   color: #ff1493; }
 
 .welcome {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #32cd32;
   font-style: italic; }
+
+.messages {
+  height: 60vh;
+  width: 96vw;
+  margin: 0 auto;
+  overflow: auto;
+  overflow-y: auto;
+  color: #8b008b;
+  background: #00c5cd;
+  border: 4px solid #32cd32; }
+
+.message-box, .door-box {
+  margin-top: 1px;
+  margin-bottom: 0; }
+
+.door-box {
+  color: #ff1493; }
+
+.begin {
+  /*@include transform(opacity 500);
+  @include transition();*/ }
 
 .present {
   width: 60%; }
@@ -415,38 +446,39 @@ textarea {
   opacity: .6;
   margin: 1px;
   padding: 0 4px;
-  background: #00c5cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#32cd32), to(#00c5cd));
+  background: -moz-linear-gradient(top, #32cd32, #00c5cd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32cd32', endColorstr='#00c5cd');
   color: #8b008b;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px; }
+  .name-box:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 25px #ff1493;
+    -moz-box-shadow: 0 0 25px #ff1493;
+    box-shadow: 0 0 25px #ff1493; }
 
 .typing {
   color: #ff1493;
-  font-size: .5rem; }
-
-.messages {
-  height: 60vh;
-  width: 100%;
-  overflow-y: auto;
-  color: #8b008b;
-  background: #00c5cd; }
+  font-size: .75rem; }
 
 /***** General Styles ******/
 body {
   background: #27408b;
   color: #00c5cd;
-  text-align: center-top; }
+  text-align: center-top;
+  font-size: 16px; }
 
 div, input, p {
-  margin: 8px; }
-
-input {
+  margin: 1vh 1vw;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
-  border-radius: 2px;
+  border-radius: 2px; }
+
+input {
   height: 1.5rem;
   font-size: 1.5 rem;
   border: none;
@@ -454,35 +486,59 @@ input {
   color: #8b008b; }
   input:focus {
     outline: none;
-    -webkit-box-shadow: 0 0 25px #ff1493;
-    -moz-box-shadow: 0 0 25px #ff1493;
-    box-shadow: 0 0 25px #ff1493; }
+    -webkit-box-shadow: 0 0 10px #32cd32;
+    -moz-box-shadow: 0 0 10px #32cd32;
+    box-shadow: 0 0 10px #32cd32; }
 
 /***** Modules ******/
 .login {
   width: 100%;
   height: 100%;
   text-align: center;
-  padding-top: 20vh; }
+  padding-top: 20vh;
+  font-size: 1.5rem; }
 
 .username {
-  text-align: center; }
+  text-align: center;
+  font-size: 1.5rem; }
 
 .base {
-  width: 100%;
-  display: none; }
+  width: 98vw;
+  display: none;
+  overflow: auto; }
 
 .brand {
   font-weight: bolder;
-  font-size: 2rem; }
+  font-size: 1.5rem; }
 
 .brand, .count {
   color: #ff1493; }
 
 .welcome {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #32cd32;
   font-style: italic; }
+
+.messages {
+  height: 60vh;
+  width: 96vw;
+  margin: 0 auto;
+  overflow: auto;
+  overflow-y: auto;
+  color: #8b008b;
+  background: #00c5cd;
+  border: 4px solid #32cd32; }
+
+.message-box, .door-box {
+  margin-top: 1px;
+  margin-bottom: 0; }
+
+.door-box {
+  color: #ff1493; }
+
+.begin {
+  /*@include transform(opacity 500);
+  @include transition();*/ }
 
 .present {
   width: 60%; }
@@ -492,20 +548,20 @@ input {
   opacity: .6;
   margin: 1px;
   padding: 0 4px;
-  background: #00c5cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#32cd32), to(#00c5cd));
+  background: -moz-linear-gradient(top, #32cd32, #00c5cd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32cd32', endColorstr='#00c5cd');
   color: #8b008b;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px; }
+  .name-box:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 25px #ff1493;
+    -moz-box-shadow: 0 0 25px #ff1493;
+    box-shadow: 0 0 25px #ff1493; }
 
 .typing {
   color: #ff1493;
-  font-size: .5rem; }
-
-.messages {
-  height: 60vh;
-  width: 100%;
-  overflow-y: auto;
-  color: #8b008b;
-  background: #00c5cd; }
+  font-size: .75rem; }

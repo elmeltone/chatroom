@@ -1,12 +1,13 @@
 .base {
-  width: 100%;
+  width: 98vw;
   display: none;
+  overflow: auto;
 
 }
 
 .brand {
   font-weight: bolder;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .brand, .count {
@@ -14,9 +15,34 @@
 }
 
 .welcome {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: $message-color;
   font-style: italic;
+}
+
+.messages {
+  height: 60vh;
+  width: 96vw;
+  margin: 0 auto;
+  overflow: auto;
+  overflow-y: auto;
+  color: $compliment-color;
+  background: $anchor-color;
+  border: 4px solid $message-color;
+}
+
+.message-box, .door-box {
+  margin-top: 1px;
+  margin-bottom: 0;
+}
+
+.door-box {
+  color: $emphasis-color;
+}
+
+.begin {
+  /*@include transform(opacity 500);
+  @include transition();*/
 }
 
 .present {
@@ -28,20 +54,16 @@
   opacity: .6;
   margin: 1px;
   padding: 0 4px;
-  background: $anchor-color;
+  @include gradient($message-color, $anchor-color);
   color: $compliment-color;
   @include border-radius(2px);
+  &:hover {
+    cursor: pointer;
+    @include box-shadow(0, 0, 25px, $emphasis-color);
+  };
 }
 
 .typing {
   color: $emphasis-color;
-  font-size: .5rem;
-}
-
-.messages {
-  height: 60vh;
-  width: 100%;
-  overflow-y: auto;
-  color: $compliment-color;
-  background: $anchor-color;
+  font-size: .75rem;
 }
