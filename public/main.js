@@ -16,20 +16,16 @@ $(function() {
     var addNickname = function(name) {
         $messages.append('<div>'+name+'</div>');
     };
-
     var clearNames = function() {
         $present.empty();
     };
-
     var showNames = function(names) {
         $present.append(names);
     };
-
     var addCount = function(users) {
         $count.empty();
         $count.append(users);
     };
-
     var isTyping = function(typer) {
         $('.'+typer).empty();
         $('.'+typer).append(' is typing...');
@@ -37,12 +33,13 @@ $(function() {
         $('.'+typer).empty();
         };
         clearTimeout(timeTyping);
-        setTimeout(timeTyping, 4000);
+        setTimeout(timeTyping, 2000);
     };
-
     var addMessage = function(message) {
         $messages.append('<div>'+message+'</div>');
     };
+
+    $username.focus();
 
     $username.on('keydown', function(event) {
         if (event.keyCode != 13) {

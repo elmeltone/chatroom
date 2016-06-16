@@ -1,5 +1,47 @@
 .base {
   width: 100%;
-  height: 100%;
   display: none;
+
+}
+
+.brand {
+  font-weight: bolder;
+  font-size: 2rem;
+}
+
+.brand, .count {
+  color: $emphasis-color;
+}
+
+.welcome {
+  font-size: 2rem;
+  color: $message-color;
+  font-style: italic;
+}
+
+.present {
+  width: 60%;
+}
+
+.name-box {
+  display: inline-block;
+  opacity: .6;
+  margin: 1px;
+  padding: 0 4px;
+  background: $anchor-color;
+  color: $compliment-color;
+  @include border-radius(2px);
+}
+
+.typing {
+  color: $emphasis-color;
+  font-size: .5rem;
+}
+
+.messages {
+  height: 60vh;
+  width: 100%;
+  overflow-y: auto;
+  color: $compliment-color;
+  background: $anchor-color;
 }

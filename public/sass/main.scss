@@ -1,10 +1,55 @@
 /*
-Theme Name: Chatroom Website
+Theme Name: TheChat
 Description: Simple chatroom built with Node.js
 Author: Michael J Melton <meltonm83@gmail.com>
 Author URI: http://elmeltone.github.io/
 Tags: Website, Chat, Chatroom, Node.js
 */
+
+/***** Colors ******/
+
+$background-color: #27408b;
+$compliment-color: #8b008b;
+$emphasis-color: #ff1493;
+$anchor-color: #00c5cd;
+$message-color: #32cd32;
+
+/*
+#27408b dark-blue
+#8b008b purple
+#ff1493 pink
+#00c5cd light-blue
+#32cd32 green
+*/
+
+/***** Mixins ******/
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin gradient($from, $to) {
+  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background: -moz-linear-gradient(top,  $from, $to);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}
+
+/***** Normalize ******/
 
 @import 'normalize';
 @import 'login';
@@ -14,11 +59,29 @@ Tags: Website, Chat, Chatroom, Node.js
 /***** General Styles ******/
 
 body {
-
+  background: $background-color;
+  color: $anchor-color;
+  text-align: center-top;
 }
 
-.messages {
-  height: 500px;
-  overflow-y: auto;
-  color: blue;
+div, input, p, {
+  margin: 8px;
 }
+
+input {
+  @include border-radius(2px);
+  height: 1.5rem;
+  font-size: 1.5 rem;
+  border: none;
+  &:focus {
+    outline: none;
+    @include box-shadow(0, 0, 25px, $emphasis-color);
+  }
+  background: $anchor-color;
+  color: $compliment-color;
+}
+
+/***** Modules ******/
+
+@import 'login';
+@import 'base';
