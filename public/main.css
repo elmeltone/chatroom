@@ -406,17 +406,26 @@ textarea {
   display: none;
   overflow: auto; }
 
+.first-line, .brand {
+  display: inline; }
+
+.first-line {
+  float: right;
+  margin: 0; }
+
 .brand {
   font-weight: bolder;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  margin-left: 8px; }
 
 .brand, .count {
-  color: #ff1493; }
+  color: #32cd32; }
 
 .welcome {
   font-size: 1.5rem;
-  color: #32cd32;
-  font-style: italic; }
+  color: #ff1493;
+  font-style: italic;
+  margin-right: 8px; }
 
 .messages {
   height: 60vh;
@@ -426,17 +435,24 @@ textarea {
   overflow-y: auto;
   color: #8b008b;
   background: #00c5cd;
-  border: 4px solid #32cd32; }
+  border: 1px solid #ff1493; }
 
 .message-box, .door-box, .own-message {
   margin-top: 1px;
   margin-bottom: 0; }
 
+.message-box {
+  color: #8b008b; }
+
 .door-box {
-  color: #27408b;
-  opacity: .75; }
+  opacity: .5;
+  font-size: 0.75rem;
+  font-style: italic; }
 
 .own-message {
+  color: #ff1493; }
+
+.content {
   color: #27408b; }
 
 .begin {

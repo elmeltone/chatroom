@@ -85,8 +85,8 @@ $(function() {
         };
 
         var message = $input.val();
-        socket.emit('message', nickname+': '+message);
-        socket.emit('selfMessage', nickname+': '+message);
+        socket.emit('message', nickname+': '+'<span class="content">'+message+'</span');
+        socket.emit('selfMessage', nickname+': '+'<span class="content">'+message+'</span');
         $input.val('');
         $messages[0].scrollTop = $messages[0].scrollHeight;
     });
