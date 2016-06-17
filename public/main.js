@@ -37,9 +37,11 @@ $(function() {
     };
     var addMessage = function(message) {
         $messages.append('<div class="message-box">'+message+'</div>');
+        $messages[0].scrollTop = $messages[0].scrollHeight;
     };
     var selfMessage = function(message) {
         $messages.append('<div class="own-message">'+message+'</div>');
+        $messages[0].scrollTop = $messages[0].scrollHeight;
     };
 
     $username.focus();
@@ -88,7 +90,6 @@ $(function() {
         socket.emit('message', nickname+': '+'<span class="content">'+message+'</span');
         socket.emit('selfMessage', nickname+': '+'<span class="content">'+message+'</span');
         $input.val('');
-        $messages[0].scrollTop = $messages[0].scrollHeight;
     });
 
     socket.on('nickname', addNickname);
