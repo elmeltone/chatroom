@@ -1,3 +1,5 @@
+/***** Header Styles ******/
+
 .base {
   width: 98vw;
   display: none;
@@ -13,9 +15,10 @@
   float: right;
 }
 
-.brand {
-  font-weight: bolder;
+.brand, {
+  font-weight: 900;
   font-size: 1.5rem;
+  padding-left: 0.5rem;
 }
 
 .brand, .count {
@@ -24,10 +27,13 @@
 
 .welcome {
   font-size: 1.5rem;
+  font-weight: 600;
   color: $emphasis-color;
   font-style: italic;
-  margin-right: 8px;
+  margin-right: 0.5rem;
 }
+
+/***** Message Window Styles ******/
 
 .messages {
   height: 60vh;
@@ -36,7 +42,7 @@
   overflow: auto;
   overflow-y: auto;
   color: $compliment-color;
-  @include gradient($anchor-color, $plain-color);
+  @include gradient($anchor-color, $message-color);
   border: 1px solid $emphasis-color;
 }
 
@@ -62,6 +68,8 @@
 .content {
   color: $background-color;
 }
+
+/***** Footer Styles ******/
 
 .begin {
   /*@include transform(opacity 500);
