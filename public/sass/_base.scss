@@ -42,7 +42,7 @@
   overflow: auto;
   overflow-y: auto;
   color: $compliment-color;
-  @include gradient($anchor-color, $message-color);
+  @include gradient($anchor-color, $plain-color);
   border: 1px solid $emphasis-color;
 }
 
@@ -74,6 +74,13 @@
 .begin {
   /*@include transform(opacity 500);
   @include transition();*/
+}
+
+.chatter {
+  &:focus {
+    outline: none;
+    @include box-shadow(0, 0, 10px, $emphasis-color);
+  }
 }
 
 .present {
