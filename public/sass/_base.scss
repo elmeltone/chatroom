@@ -37,7 +37,7 @@
   overflow: auto;
   overflow-y: auto;
   color: $compliment-color;
-  background: $anchor-color;
+  @include gradient($message-color, $anchor-color);
   border: 1px solid $emphasis-color;
 }
 

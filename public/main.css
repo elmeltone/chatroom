@@ -434,7 +434,9 @@ textarea {
   overflow: auto;
   overflow-y: auto;
   color: #8b008b;
-  background: #00c5cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#32cd32), to(#00c5cd));
+  background: -moz-linear-gradient(top, #32cd32, #00c5cd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32cd32', endColorstr='#00c5cd');
   border: 1px solid #ff1493; }
 
 .message-box, .door-box, .own-message {
