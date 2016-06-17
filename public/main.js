@@ -38,6 +38,9 @@ $(function() {
     var addMessage = function(message) {
         $messages.append('<div class="message-box">'+message+'</div>');
     };
+    var selfMessage = function(message) {
+        $messages.append('<div class="own-message">'+message+'</div>');
+    };
 
     $username.focus();
 
@@ -83,6 +86,7 @@ $(function() {
 
         var message = $input.val();
         socket.emit('message', nickname+': '+message);
+        socket.emit('selfMessage', nickname+': '+message);
         $input.val('');
         $messages[0].scrollTop = $messages[0].scrollHeight;
     });
@@ -93,4 +97,5 @@ $(function() {
     socket.on('count', addCount);
     socket.on('typing', isTyping);
     socket.on('message', addMessage);
+    socket.on('selfMessage', selfMessage);
 });

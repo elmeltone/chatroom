@@ -22,6 +22,10 @@ $message-color: #32cd32;
 #32cd32 green
 */
 
+/***** Normalize ******/
+
+@import 'normalize';
+
 /***** Mixins ******/
 
 @mixin border-radius($radius) {
@@ -43,6 +47,24 @@ $message-color: #32cd32;
   }
 }
 
+@mixin scrollbars($size, $foreground-color, $background-color: $compliment-color) {
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    opacity: .8;
+      background: $background-color;
+      border: 1px solid $emphasis-color;
+      position: absolute;
+  }
+}
+
 /*@mixin transform($transforms) {
      -moz-transform: $transforms;
        -o-transform: $transforms;
@@ -57,14 +79,19 @@ $message-color: #32cd32;
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
 }
 
-/***** Normalize ******/
+/***** Modules ******/
 
-@import 'normalize';
 @import 'login';
 @import 'base';
 
-
 /***** General Styles ******/
+
+html, body {
+  @include scrollbars(0.5rem, $emphasis-color);
+  scrollbar-face-color: $emphasis-color;
+  scrollbar-track-color: $compliment-color;
+  position: relative;
+}
 
 body {
   background: $background-color;
@@ -89,8 +116,3 @@ input {
   background: $anchor-color;
   color: $compliment-color;
 }
-
-/***** Modules ******/
-
-@import 'login';
-@import 'base';

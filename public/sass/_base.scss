@@ -2,7 +2,6 @@
   width: 98vw;
   display: none;
   overflow: auto;
-
 }
 
 .brand {
@@ -31,13 +30,18 @@
   border: 4px solid $message-color;
 }
 
-.message-box, .door-box {
+.message-box, .door-box, .own-message {
   margin-top: 1px;
   margin-bottom: 0;
 }
 
 .door-box {
-  color: $emphasis-color;
+  color: $background-color;
+  opacity: .75;
+}
+
+.own-message {
+  color: $background-color;
 }
 
 .begin {

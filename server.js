@@ -35,7 +35,10 @@ io.on('connection', function (socket) {
   });
   socket.on('message', function(message) {
      console.log('Received message:', socket.id+': '+message);
-     io.emit('message', message);
+     socket.broadcast.emit('message', message);
+  });
+  socket.on('message', function(message) {
+     socket.emit('selfMessage', message);
   });
   socket.on('disconnect', function() {
     if (usersPresent) {

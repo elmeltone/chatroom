@@ -13,14 +13,6 @@ Tags: Website, Chat, Chatroom, Node.js
 #00c5cd light-blue
 #32cd32 green
 */
-/***** Mixins ******/
-/*@mixin transform($transforms) {
-     -moz-transform: $transforms;
-       -o-transform: $transforms;
-      -ms-transform: $transforms;
-  -webkit-transform: $transforms;
-          transform: $transforms;
-}*/
 /***** Normalize ******/
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -389,9 +381,18 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+/***** Mixins ******/
+/*@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}*/
+/***** Modules ******/
 .login {
-  width: 100%;
-  height: 100%;
+  width: 98vw;
+  overflow: auto;
   text-align: center;
   padding-top: 20vh;
   font-size: 1.5rem; }
@@ -427,12 +428,16 @@ textarea {
   background: #00c5cd;
   border: 4px solid #32cd32; }
 
-.message-box, .door-box {
+.message-box, .door-box, .own-message {
   margin-top: 1px;
   margin-bottom: 0; }
 
 .door-box {
-  color: #ff1493; }
+  color: #27408b;
+  opacity: .75; }
+
+.own-message {
+  color: #27408b; }
 
 .begin {
   /*@include transform(opacity 500);
@@ -465,6 +470,21 @@ textarea {
   font-size: .75rem; }
 
 /***** General Styles ******/
+html, body {
+  scrollbar-face-color: #ff1493;
+  scrollbar-track-color: #8b008b;
+  position: relative; }
+  html ::-webkit-scrollbar, body ::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem; }
+  html ::-webkit-scrollbar-thumb, body ::-webkit-scrollbar-thumb {
+    background: #ff1493; }
+  html ::-webkit-scrollbar-track, body ::-webkit-scrollbar-track {
+    opacity: .8;
+    background: #8b008b;
+    border: 1px solid #ff1493;
+    position: absolute; }
+
 body {
   background: #27408b;
   color: #00c5cd;
@@ -489,79 +509,3 @@ input {
     -webkit-box-shadow: 0 0 10px #32cd32;
     -moz-box-shadow: 0 0 10px #32cd32;
     box-shadow: 0 0 10px #32cd32; }
-
-/***** Modules ******/
-.login {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding-top: 20vh;
-  font-size: 1.5rem; }
-
-.username {
-  text-align: center;
-  font-size: 1.5rem; }
-
-.base {
-  width: 98vw;
-  display: none;
-  overflow: auto; }
-
-.brand {
-  font-weight: bolder;
-  font-size: 1.5rem; }
-
-.brand, .count {
-  color: #ff1493; }
-
-.welcome {
-  font-size: 1.5rem;
-  color: #32cd32;
-  font-style: italic; }
-
-.messages {
-  height: 60vh;
-  width: 96vw;
-  margin: 0 auto;
-  overflow: auto;
-  overflow-y: auto;
-  color: #8b008b;
-  background: #00c5cd;
-  border: 4px solid #32cd32; }
-
-.message-box, .door-box {
-  margin-top: 1px;
-  margin-bottom: 0; }
-
-.door-box {
-  color: #ff1493; }
-
-.begin {
-  /*@include transform(opacity 500);
-  @include transition();*/ }
-
-.present {
-  width: 60%; }
-
-.name-box {
-  display: inline-block;
-  opacity: .6;
-  margin: 1px;
-  padding: 0 4px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#32cd32), to(#00c5cd));
-  background: -moz-linear-gradient(top, #32cd32, #00c5cd);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32cd32', endColorstr='#00c5cd');
-  color: #8b008b;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  border-radius: 2px; }
-  .name-box:hover {
-    cursor: pointer;
-    -webkit-box-shadow: 0 0 25px #ff1493;
-    -moz-box-shadow: 0 0 25px #ff1493;
-    box-shadow: 0 0 25px #ff1493; }
-
-.typing {
-  color: #ff1493;
-  font-size: .75rem; }
