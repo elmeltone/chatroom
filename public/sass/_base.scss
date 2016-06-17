@@ -6,17 +6,16 @@
 
 .first-line, .brand {
   display: inline;
+  margin: 0 .25rem;
 }
 
 .first-line {
   float: right;
-  margin: 0;
 }
 
 .brand {
   font-weight: bolder;
   font-size: 1.5rem;
-  margin-left: 8px;
 }
 
 .brand, .count {
@@ -37,7 +36,7 @@
   overflow: auto;
   overflow-y: auto;
   color: $compliment-color;
-  @include gradient($message-color, $anchor-color);
+  @include gradient($anchor-color, $plain-color);
   border: 1px solid $emphasis-color;
 }
 
@@ -78,7 +77,7 @@
   opacity: .6;
   margin: 1px;
   padding: 0 4px;
-  @include gradient($message-color, $anchor-color);
+  @include gradient($anchor-color, $message-color);
   color: $compliment-color;
   @include border-radius(2px);
   &:hover {

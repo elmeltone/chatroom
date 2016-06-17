@@ -13,6 +13,7 @@ $compliment-color: #8b008b;
 $emphasis-color: #ff1493;
 $anchor-color: #00c5cd;
 $message-color: #32cd32;
+$plain-color: #ffffff;
 
 /*
 #27408b dark-blue
@@ -113,6 +114,6 @@ input {
     outline: none;
     @include box-shadow(0, 0, 10px, $message-color);
   }
-  background: $anchor-color;
+  @include gradient($plain-color, $anchor-color);
   color: $compliment-color;
 }

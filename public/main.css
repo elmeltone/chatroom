@@ -407,16 +407,15 @@ textarea {
   overflow: auto; }
 
 .first-line, .brand {
-  display: inline; }
+  display: inline;
+  margin: 0 .25rem; }
 
 .first-line {
-  float: right;
-  margin: 0; }
+  float: right; }
 
 .brand {
   font-weight: bolder;
-  font-size: 1.5rem;
-  margin-left: 8px; }
+  font-size: 1.5rem; }
 
 .brand, .count {
   color: #32cd32; }
@@ -434,9 +433,9 @@ textarea {
   overflow: auto;
   overflow-y: auto;
   color: #8b008b;
-  background: -webkit-gradient(linear, left top, left bottom, from(#32cd32), to(#00c5cd));
-  background: -moz-linear-gradient(top, #32cd32, #00c5cd);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32cd32', endColorstr='#00c5cd');
+  background: -webkit-gradient(linear, left top, left bottom, from(#00c5cd), to(#ffffff));
+  background: -moz-linear-gradient(top, #00c5cd, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00c5cd', endColorstr='#ffffff');
   border: 1px solid #ff1493; }
 
 .message-box, .door-box, .own-message {
@@ -469,9 +468,9 @@ textarea {
   opacity: .6;
   margin: 1px;
   padding: 0 4px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#32cd32), to(#00c5cd));
-  background: -moz-linear-gradient(top, #32cd32, #00c5cd);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32cd32', endColorstr='#00c5cd');
+  background: -webkit-gradient(linear, left top, left bottom, from(#00c5cd), to(#32cd32));
+  background: -moz-linear-gradient(top, #00c5cd, #32cd32);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00c5cd', endColorstr='#32cd32');
   color: #8b008b;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -520,7 +519,9 @@ input {
   height: 1.5rem;
   font-size: 1.5 rem;
   border: none;
-  background: #00c5cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#00c5cd));
+  background: -moz-linear-gradient(top, #ffffff, #00c5cd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#00c5cd');
   color: #8b008b; }
   input:focus {
     outline: none;
