@@ -13,6 +13,7 @@
 
 .first-line {
   float: right;
+  max-width: 50%;
 }
 
 .brand, {
@@ -31,6 +32,7 @@
   color: $emphasis-color;
   font-style: italic;
   margin-right: 0.5rem;
+  overflow-wrap: break-word;
 }
 
 /***** Message Window Styles ******/
@@ -39,7 +41,7 @@
   height: 60vh;
   width: 96vw;
   margin: 0 auto;
-  overflow: auto;
+  overflow-wrap: break-word;
   overflow-y: auto;
   color: $compliment-color;
   @include gradient($anchor-color, $plain-color);
@@ -53,6 +55,7 @@
 
 .message-box {
   color: $compliment-color;
+  max-width: 95%;
 }
 
 .door-box {
@@ -77,6 +80,7 @@
 }
 
 .chatter {
+  width: 60vw;
   &:focus {
     outline: none;
     @include box-shadow(0, 0, 10px, $emphasis-color);

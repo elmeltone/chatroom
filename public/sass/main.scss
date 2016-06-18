@@ -98,7 +98,7 @@ body {
   background: $background-color;
   color: $anchor-color;
   text-align: center-top;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 div, input, p, {
@@ -116,4 +116,12 @@ input {
   }
   @include gradient($plain-color, $anchor-color);
   color: $compliment-color;
+}
+
+/***** Media Queries ******/
+
+@media screen and (min-width: 400px) {
+  body {
+    font-size: 16px;
+  }
 }

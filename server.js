@@ -31,7 +31,11 @@ io.on('connection', function (socket) {
   });
   socket.on('typing', function(typer) {
     typer = socket.nickname;
-    io.emit('typing', typer);
+    socket.broadcast.emit('typing', typer);
+  });
+  socket.on('stop typing', function(typer) {
+    typer = socket.nickname;
+    socket.broadcast.emit('stop typing', typer);
   });
   socket.on('message', function(message) {
      console.log('Received message:', socket.id+': '+message);

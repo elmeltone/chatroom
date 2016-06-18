@@ -27,13 +27,12 @@ $(function() {
         $count.append(users);
     };
     var isTyping = function(typer) {
-        $('.'+typer).empty();
-        $('.'+typer).append(' is typing...');
-        function timeTyping() {
-        $('.'+typer).empty();
+        if ($('.'+typer).is(':empty')) {
+            $('.'+typer).append(' is typing...');
         };
-        clearTimeout(timeTyping);
-        setTimeout(timeTyping, 2500);
+    };
+    var stopTyping = function(typer) {
+        $('.'+typer).empty();
     };
     var addMessage = function(message) {
         $messages.append('<div class="message-box">'+message+'</div>');
@@ -69,9 +68,12 @@ $(function() {
 
     $input.on('keydown', function(event) {
         if (event.keyCode != 13) {
-            socket.emit('typing');
+            if ($(".chatter:not(:empty)")) {
+                socket.emit('typing');
+            };
             return;
         } else if (event.keyCode === 13) {
+            socket.emit('stop typing');
             if($begin.css('opacity') != '0') {
                 $begin.css({
                     'opacity': '0',
@@ -97,6 +99,7 @@ $(function() {
     socket.on('showName', showNames);
     socket.on('count', addCount);
     socket.on('typing', isTyping);
+    socket.on('stop typing', stopTyping);
     socket.on('message', addMessage);
     socket.on('selfMessage', selfMessage);
 });

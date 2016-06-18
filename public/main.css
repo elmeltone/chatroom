@@ -412,7 +412,8 @@ textarea {
   margin: 0 .25rem; }
 
 .first-line {
-  float: right; }
+  float: right;
+  max-width: 50%; }
 
 .brand {
   font-weight: 900;
@@ -427,14 +428,15 @@ textarea {
   font-weight: 600;
   color: #ff1493;
   font-style: italic;
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+  overflow-wrap: break-word; }
 
 /***** Message Window Styles ******/
 .messages {
   height: 60vh;
   width: 96vw;
   margin: 0 auto;
-  overflow: auto;
+  overflow-wrap: break-word;
   overflow-y: auto;
   color: #8b008b;
   background: -webkit-gradient(linear, left top, left bottom, from(#00c5cd), to(#ffffff));
@@ -447,7 +449,8 @@ textarea {
   margin-bottom: 0; }
 
 .message-box {
-  color: #8b008b; }
+  color: #8b008b;
+  max-width: 95%; }
 
 .door-box {
   opacity: .5;
@@ -465,11 +468,13 @@ textarea {
   /*@include transform(opacity 500);
   @include transition();*/ }
 
-.chatter:focus {
-  outline: none;
-  -webkit-box-shadow: 0 0 10px #ff1493;
-  -moz-box-shadow: 0 0 10px #ff1493;
-  box-shadow: 0 0 10px #ff1493; }
+.chatter {
+  width: 60vw; }
+  .chatter:focus {
+    outline: none;
+    -webkit-box-shadow: 0 0 10px #ff1493;
+    -moz-box-shadow: 0 0 10px #ff1493;
+    box-shadow: 0 0 10px #ff1493; }
 
 .present {
   width: 60%; }
@@ -517,7 +522,7 @@ body {
   background: #27408b;
   color: #00c5cd;
   text-align: center-top;
-  font-size: 16px; }
+  font-size: 12px; }
 
 div, input, p {
   margin: 1vh 1vw;
@@ -539,3 +544,8 @@ input {
     -webkit-box-shadow: 0 0 10px #32cd32;
     -moz-box-shadow: 0 0 10px #32cd32;
     box-shadow: 0 0 10px #32cd32; }
+
+/***** Media Queries ******/
+@media screen and (min-width: 400px) {
+  body {
+    font-size: 16px; } }
