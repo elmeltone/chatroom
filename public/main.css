@@ -416,7 +416,8 @@ textarea {
 
 .first-line {
   float: right;
-  max-width: 50%; }
+  max-width: 50%;
+  font-size: 0.75rem; }
 
 .brand {
   font-weight: 900;
@@ -526,7 +527,7 @@ body {
   background: #27408b;
   color: #00c5cd;
   text-align: center-top;
-  font-size: 12px; }
+  font-size: 16px; }
 
 div, input, p {
   margin: 1vh 1vw;
@@ -550,10 +551,6 @@ input {
     box-shadow: 0 0 10px #32cd32; }
 
 /***** Media Queries ******/
-@media screen and (min-width: 400px) {
-  body {
-    font-size: 16px; } }
-
 @media screen and (min-width: 400px) {
   body {
     font-size: 20px; }

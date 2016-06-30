@@ -98,7 +98,7 @@ body {
   background: $background-color;
   color: $anchor-color;
   text-align: center-top;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 div, input, p, {
@@ -119,12 +119,6 @@ input {
 }
 
 /***** Media Queries ******/
-
-@media screen and (min-width: 400px) {
-  body {
-    font-size: 16px;
-  }
-}
 
 @media screen and (min-width: 400px) {
   body {
