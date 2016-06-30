@@ -436,7 +436,8 @@ textarea {
 
 /***** Message Window Styles ******/
 .messages {
-  height: 60vh;
+  min-height: 20vh;
+  max-height: 60vh;
   width: 96vw;
   margin: 0 auto;
   overflow-wrap: break-word;
