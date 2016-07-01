@@ -9,7 +9,7 @@ Tags: Website, Chat, Chatroom, Node.js
 /***** Colors ******/
 
 $background-color: #27408b;
-$compliment-color: #8b008b;
+$complement-color: #8b008b;
 $emphasis-color: #ff1493;
 $anchor-color: #00c5cd;
 $message-color: #32cd32;
@@ -48,7 +48,7 @@ $plain-color: #ffffff;
   }
 }
 
-@mixin scrollbars($size, $foreground-color, $background-color: $compliment-color) {
+@mixin scrollbars($size, $foreground-color, $background-color: $complement-color) {
   ::-webkit-scrollbar {
       width:  $size;
       height: $size;
@@ -90,7 +90,7 @@ $plain-color: #ffffff;
 html, body {
   @include scrollbars(0.5rem, $emphasis-color);
   scrollbar-face-color: $emphasis-color;
-  scrollbar-track-color: $compliment-color;
+  scrollbar-track-color: $complement-color;
   position: relative;
 }
 
@@ -115,7 +115,7 @@ input {
     @include box-shadow(0, 0, 10px, $message-color);
   }
   @include gradient($plain-color, $anchor-color);
-  color: $compliment-color;
+  color: $complement-color;
 }
 
 /***** Media Queries ******/

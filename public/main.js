@@ -1,6 +1,9 @@
 $(function() {
     var socket = io({
-        'reconnection': false
+        'reconnection': true,
+        'reconnectionDelay': 1000,
+        'reconnectionDelayMax' : 5000,
+        'reconnectionAttempts': 2
     });
     var $login = $('.login');
     var $base = $('.base');

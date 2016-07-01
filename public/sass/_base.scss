@@ -49,7 +49,7 @@
   margin: 0 auto;
   overflow-wrap: break-word;
   overflow-y: auto;
-  color: $compliment-color;
+  color: $complement-color;
   @include gradient($anchor-color, $plain-color);
   border: 1px solid $emphasis-color;
 }
@@ -60,7 +60,7 @@
 }
 
 .message-box {
-  color: $compliment-color;
+  color: $complement-color;
   max-width: 95%;
 }
 
@@ -103,7 +103,7 @@
   margin: 1px;
   padding: 0 4px;
   @include gradient($anchor-color, $message-color);
-  color: $compliment-color;
+  color: $complement-color;
   @include border-radius(2px);
   &:hover {
     cursor: pointer;
