@@ -382,13 +382,6 @@ textarea {
   /* 2 */ }
 
 /***** Mixins ******/
-/*@mixin transform($transforms) {
-     -moz-transform: $transforms;
-       -o-transform: $transforms;
-      -ms-transform: $transforms;
-  -webkit-transform: $transforms;
-          transform: $transforms;
-}*/
 /***** Modules ******/
 .login {
   width: 98vw;
@@ -469,10 +462,6 @@ textarea {
   color: #27408b; }
 
 /***** Footer Styles ******/
-.begin {
-  /*@include transform(opacity 500);
-  @include transition();*/ }
-
 .chatter {
   width: 60vw; }
   .chatter:focus {

@@ -80,11 +80,6 @@
 
 /***** Footer Styles ******/
 
-.begin {
-  /*@include transform(opacity 500);
-  @include transition();*/
-}
-
 .chatter {
   width: 60vw;
   &:focus {
@@ -108,7 +103,7 @@
   &:hover {
     cursor: pointer;
     @include box-shadow(0, 0, 25px, $emphasis-color);
-  };
+  }
 }
 
 .typing {

@@ -66,14 +66,6 @@ $plain-color: #ffffff;
   }
 }
 
-/*@mixin transform($transforms) {
-     -moz-transform: $transforms;
-       -o-transform: $transforms;
-      -ms-transform: $transforms;
-  -webkit-transform: $transforms;
-          transform: $transforms;
-}*/
-
 @mixin gradient($from, $to) {
   background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
   background: -moz-linear-gradient(top,  $from, $to);
@@ -125,14 +117,14 @@ input {
     font-size: 20px;
   }
   .brand, {
-  padding-left: 1rem;
-}
+    padding-left: 1rem;
+  }
 
-.brand, .count {
-  color: $message-color;
-}
+  .brand, .count {
+    color: $message-color;
+  }
 
-.welcome {
-  margin-right: 1rem;
-}
+  .welcome {
+    margin-right: 1rem;
+  }
 }
