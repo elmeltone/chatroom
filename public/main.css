@@ -463,7 +463,8 @@ textarea {
 
 /***** Footer Styles ******/
 .chatter {
-  width: 94vw; }
+  width: 90vw;
+  padding-left: 4px; }
   .chatter:focus {
     outline: none;
     -webkit-box-shadow: 0 0 10px #ff1493;

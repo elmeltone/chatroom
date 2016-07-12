@@ -81,7 +81,8 @@
 /***** Footer Styles ******/
 
 .chatter {
-  width: 94vw;
+  width: 90vw;
+  padding-left: 4px;
   &:focus {
     outline: none;
     @include box-shadow(0, 0, 10px, $emphasis-color);
