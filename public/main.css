@@ -420,6 +420,9 @@ textarea {
 .brand, .count {
   color: #32cd32; }
 
+.count {
+  display: none; }
+
 .welcome {
   font-size: 1.5rem;
   font-weight: 600;
